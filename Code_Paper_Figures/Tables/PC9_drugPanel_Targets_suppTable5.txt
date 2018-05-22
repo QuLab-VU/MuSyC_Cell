@@ -1,0 +1,70 @@
+\begin{tabular}{llll}
+Class&Subclass&Drug&Nominal Target \\
+\hline
+&&&\\
+Epigenetic_Regulators & BET & jq1 &          BET bromo-domain \\
+                      & HDACi & abexinostat &                      HDAC \\
+                      &     & entinostat &                      HDAC \\
+                      &     & givinostat &                      HDAC \\
+                      &     & m344 &                      HDAC \\
+                      &     & mocetinostat &                      HDAC \\
+                      &     & panobinostat &                      HDAC \\
+                      &     & pracinostat &                      HDAC \\
+                      &     & quisinostat &                      HDAC \\
+                      & TF & bazedoxifene &                        ER \\
+                      &     & verteporfin &                       YAP \\
+Kinases & ALK & ceritinib &                 ALK/IGF1R \\
+                      &     & ensartinib &                       ALK \\
+                      & AURK/CDKs & bml259 &                       CDK \\
+                      &     & zm447439 &                      AURK \\
+                      & MAPK/PI3K & dactolisib &                 PI3K/mTOR \\
+                      &     & ly294002 &                      PI3K \\
+                      &     & rapamycin &                      mTOR \\
+                      &     & sb253226 &                       p38 \\
+                      &     & tak632 &                       RAF \\
+                      &     & trametinib &                       MEK \\
+                      &     & u0126 &                       MEK \\
+                      &     & ulixertinib &                       ERK \\
+                      & SFK & bosutinib &               Bcr-ABL/SFK \\
+                      &     & dasatinib &                       SFK \\
+                      &     & pp2 &                       SFK \\
+                      &     & quercetin &                       SFK \\
+Mitotic_Checkpoint & DNA Syn/Dam & carmustine &                       DNA \\
+                      &     & methotrexate &                      DHFR \\
+                      &     & olaparib &                      PARP \\
+                      & Protein Syn/Stab & carfilzomib &                Proteasome \\
+                      &     & harringtonine &                 Ribosomes \\
+                      &     & mg132 &                Proteasome \\
+                      &     & tanespimycin &                     HSP90 \\
+                      & Tubulin & cephalomannine &              Microtubules \\
+                      &     & docetaxel &              Microtubules \\
+                      &     & vindesine &              Microtubules \\
+                      &     & vinorelbinetartrate &              Microtubules \\
+Receptors_and_Channels & Channels & amiodarone &               NA Channels \\
+                      &     & bendroflumethiazide &                Cl channel \\
+                      &     & cabozantinib &             C-Met/Axl/Ret \\
+                      &     & dronedarone &               NA Channels \\
+                      &     & ivacaftor &                      CFTR \\
+                      &     & nateglinide &  ATP-dependent K channels \\
+                      & GPCRs & acetylcysteine &        Glutamate receptor \\
+                      &     & aprepitant &       Neuromedin receptor \\
+                      &     & beclomethasonedipropionate &   Glucocorticoid receptor \\
+                      &     & loratadine &    Histamine H1-receptors \\
+                      &     & naftopidil &    B1-adrenergic receptor \\
+                      &     & nebivolol &               B1 receptor \\
+                      &     & sp600125 &                       JNK \\
+                      &     & thioridazine &       Adrenergic receptor \\
+                      & MAPK-RTKIs & afatinib &                 EGFR/HER2 \\
+                      &     & ag 879 &                HER2/RAF-1 \\
+                      &     & gefitinib &                      EGFR \\
+                      &     & gsk1751853a &                IGF1R/INSR \\
+                      &     & gsk994854a &                IGF1R/INSR \\
+                      &     & gw458787a &                EGFR/ERBB4 \\
+                      &     & gw644007x &                       Ret \\
+                      &     & gw694590a &                      TIE2 \\
+                      &     & gw770249x &                      FLT3 \\
+                      &     & linsitinib &                     IGF1R \\
+                      &     & ponatinib &                      FGFR \\
+                      &     & tyrphostinag370 &                 PDGFRbeta \\
+\bottomrule
+\end{tabular}

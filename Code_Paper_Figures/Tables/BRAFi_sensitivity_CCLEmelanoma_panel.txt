@@ -1,0 +1,17 @@
+\begin{tabular}{lr}
+\toprule
+{} &     rates \\
+cell         &           \\
+\midrule
+A2058_SKIN   &  0.030000 \\
+A375_SKIN    &  0.005000 \\
+SKMEL28_SKIN &  0.010263 \\
+SKMEL5_SKIN  &  0.014470 \\
+WM115_SKIN   &  0.013000 \\
+WM1799_SKIN  & -0.002267 \\
+WM2664_SKIN  &  0.003812 \\
+WM793_SKIN   &  0.015316 \\
+WM88_SKIN    & -0.020680 \\
+WM983B_SKIN  &  0.021509 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,80 @@
+Drug,Nominal Target,label
+5iodotubericidin,acetyl-CoA carboxylase,0
+abexinostat,HDAC,2.1
+acetylcysteine,Glutamate receptor,3.2
+afatinib,EGFR/HER2,3.3
+ag 879,HER2/RAF-1,3.3
+alisertib,AURK,4.2
+amiodarone,NA Channels,3.1
+aprepitant,Neuromedin receptor,3.2
+bazedoxifene,ER,2.3
+beclomethasonedipropionate,Glucocorticoid receptor,3.2
+bendroflumethiazide,Cl channel,3.1
+bml259,CDK,4.2
+bosutinib,Bcr-ABL/SFK,4.4
+buparlisib,PI3K,4.1
+cabozantinib,C-Met/Axl/Ret,3.1
+carfilzomib,Proteasome,1.2
+carmustine,DNA,1.3
+cephalomannine,Microtubules,1.1
+ceritinib,ALK/IGF1R,4.3
+cisplatin,DNA,1.3
+crizotinib,ALK/ROS,4.3
+dactolisib,PI3K/mTOR,4.1
+dasatinib,SFK,4.4
+docetaxel,Microtubules,1.1
+dronedarone,NA Channels,3.1
+ensartinib,ALK,4.3
+entinostat,HDAC,2.1
+erlotinib,EGFR,3.3
+everolimus,mTOR,4.1
+gefitinib,EGFR,3.3
+givinostat,HDAC,2.1
+gsk1751853a,IGF1R/INSR,3.3
+gsk994854a,IGF1R/INSR,3.3
+gw458787a,EGFR/ERBB4,3.3
+gw644007x,Ret,3.3
+gw694590a,TIE2,3.3
+gw770249x,FLT3,3.3
+harringtonine,Ribosomes,1.2
+ivacaftor,CFTR,3.1
+jq1,BET bromo-domain,2.2
+linsitinib,IGF1R,3.3
+loratadine,Histamine H1-receptors,3.2
+ly294002,PI3K,4.1
+m344,HDAC,2.1
+methotrexate,DHFR,1.3
+mg132,Proteasome,1.2
+ml9,Myosin ,0
+mocetinostat,HDAC,2.1
+naftopidil,B1-adrenergic receptor,3.2
+nateglinide,ATP-dependent K channels,3.1
+nebivolol,B1 receptor,3.2
+olaparib,PARP,1.3
+paclitaxel,Microtubules,1.1
+panobinostat,HDAC,2.1
+pimobendan,Phosphodiesterase 3,0
+ponatinib,FGFR,3.3
+pp2,SFK,4.4
+pracinostat,HDAC,2.1
+primaquinediphosphate,Quinone,0
+quercetin,SFK,4.4
+quisinostat,HDAC,2.1
+rapamycin,mTOR,4.1
+sb245392,p38,4.1
+sb253226,p38,4.1
+selumetinib,MEK,4.1
+sp600125,JNK,3.2
+sunitinib,VEGFR,3.2
+tak632,RAF,4.1
+tanespimycin,HSP90,1.2
+thioridazine,Adrenergic receptor,3.2
+trametinib,MEK,4.1
+tyrphostinag370,PDGFRbeta,3.3
+u0126,MEK,4.1
+ulixertinib,ERK,4.1
+verteporfin,YAP,2.3
+vindesine,Microtubules,1.1
+vinorelbine,Microtubules,1.1
+vinorelbinetartrate,Microtubules,1.1
+zm447439,AURK,4.2

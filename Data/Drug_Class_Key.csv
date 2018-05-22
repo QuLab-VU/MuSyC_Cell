@@ -1,0 +1,14 @@
+label_key,superclass,subclass,subclass_to_write
+1.1,Mitotic_Checkpoint,Tubulin,Tubulin
+1.2,Mitotic_Checkpoint,Protein Syn/Stab,Protein_Syn_Stab
+1.3,Mitotic_Checkpoint,DNA Syn/Dam,DNA_Syn_Dam
+2.1,Epigenetic_Regulators,HDACi,HDACi
+2.2,Epigenetic_Regulators,BET,BET
+2.3,Epigenetic_Regulators,TF,TF
+3.1,Receptors_and_Channels,Channels,Channels
+3.2,Receptors_and_Channels,GPCRs,GPCRs
+3.3,Receptors_and_Channels,MAPK-RTKIs,MAPK-RTKIs
+4.1,Kinases,MAPK/PI3K,MAPK_PI3K
+4.2,Kinases,AURK/CDKs,AURK_CDKs
+4.3,Kinases,ALK,ALK
+4.4,Kinases,SFK,SFK

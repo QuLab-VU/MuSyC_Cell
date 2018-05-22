@@ -1,0 +1,19 @@
+mcc -o MuSyC_demo -W main:MuSyC_demo -T link:exe -d '/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/MuSyC_demo/for_testing' -R '-logfile,musyc_demo_log.txt' -v '/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/synGUI.m' -a '/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/contourdata.m' -a '/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/diverging_map.m' -a '/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/proverbs.csv' 
+Compiler version: 6.1 (R2015b)
+
+Dependency analysis by REQUIREMENTS.
+
+[Warning: Adding path
+"/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab
+code" to Compiler path instance.] 
+[] 
+Parsing file "/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/synGUI.m"
+	(Referenced from: "Compiler Command Line").
+Deleting 0 temporary MEX authorization files.
+Generating file "/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/MuSyC_demo/for_testing/readme.txt".
+Generating file "/home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/MuSyC_demo/for_testing/run_MuSyC_demo.sh".
+Packaging...
+Creating the bundle...
+Web based installer created at /home/xnmeyer/Documents/Lab/Repos/drug_synergy_data_Cell/Combination_Surface_App/Matlab code/MuSyC_demo/for_redistribution/MyAppInstaller_web.install.
+Packaging complete.
+Elapsed packaging time was: 36 seconds.
