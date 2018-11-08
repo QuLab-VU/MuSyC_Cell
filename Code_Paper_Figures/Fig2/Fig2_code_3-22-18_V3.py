@@ -667,8 +667,8 @@ for drug, drug_id in zip(["m344","ceritinib"], ["drug1","drug2"]):
     mcmc_data = pd.read_csv("../../Data/MasterResults_PC9_filtered.csv")
     mcmc_data = mcmc_data.loc[mcmc_data['%s_name'%drug_id]==drug]
 
-    sP.plot_surface(mcmc_data, hts_data, drug_id, drug, fname="Plots/%s.pdf"%drug, zlim = (-0.03, 0.032))
-    sP.plot_slices(mcmc_data, hts_data, drug_id, drug, fname="Plots/%s_slices.pdf"%drug)
+    sP.plot_surface(mcmc_data, hts_data, drug_id, drug, fname="%s.pdf"%drug, zlim = (-0.03, 0.032))
+    sP.plot_slices(mcmc_data, hts_data, drug_id, drug, fname="%s_slices.pdf"%drug)
 
 
 ##################################################

@@ -1,0 +1,13 @@
+cd mcmc/
+sbatch Syn_scratch.slurm 
+cd ..
+cd multi_mcmc/
+sbatch Syn_scratch.slurm 
+cd ..
+cd pso_mcmc/
+sbatch Syn_scratch.slurm 
+cd ..
+cd pso_mle/
+sbatch Syn_scratch.slurm
+cd ..
+

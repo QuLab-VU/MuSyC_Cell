@@ -71,19 +71,29 @@ T = pd.read_csv('../../Data/MasterResults_PC9_filtered.csv')
 mech = pd.read_csv('../../Data/Drug_MOA_Table_supp.csv',index_col=0)
 mech_key = pd.read_csv('../../Data/Drug_Class_Key.csv',index_col=0)
 #Which ones to label in the DSDs
-drug_combinations = t_pc9[['drug1_name','drug2_name']]      
+drug_combinations = t_pc9[['drug1_name','drug2_name','max_conc_d1','min_conc_d1','max_conc_d2','min_conc_d2']]      
 #All drugs are in combination with osimertinib....Find the name of the other drug
 drug_name=[]
+tested_conc_rng=[]
 for e,i in enumerate(drug_combinations.index):
     if drug_combinations['drug1_name'][i]!='osimertinib':
         drug_name.append(drug_combinations['drug1_name'][i])
+        mx_conc = drug_combinations['max_conc_d1'][i]*1e6
+        mn_conc = drug_combinations['min_conc_d1'][i]*1e9
+        string = '{0:.1f}'.format(mx_conc) + 'uM-' + '{0:.1f}'.format(mn_conc) + 'nM,0nM'
+        tested_conc_rng.append(string)
     else:
         drug_name.append(drug_combinations['drug2_name'][i])  
+        mx_conc = drug_combinations['max_conc_d2'][i]*1e6
+        mn_conc = drug_combinations['min_conc_d2'][i]*1e9
+        string = '{0:.1f}'.format(mx_conc) + 'uM-' + '{0:.1f}'.format(mn_conc) + 'nM,0nM'
+        tested_conc_rng.append(string)
 
 #Name of super classes
 sup_class = ['Mitotic\nCheckpoint', 'Epigenetic\nRegulators','Receptors&\nChannels', 'Kinases']
 mech = mech.loc[drug_name]
 mech['Drug Name']=mech.index
+
 
 mech['Class'] = ''
 mech['Subclass'] = ''
@@ -91,7 +101,30 @@ for i in mech_key.index:
     mech['Class'].loc[mech['label']==i]= mech_key['superclass'].loc[i]   
     mech['Subclass'].loc[mech['label']==i]=mech_key['subclass'].loc[i]
 
-t = mech.groupby(['Class','Subclass','Drug Name'])
+mech['Tested Range'] = tested_conc_rng
+
+t = mech.groupby(['Class','Subclass','Drug Name','Tested Range','Nominal Target'])
 f = open('PC9_drugPanel_Targets_suppTable5.txt','w')
 f.write(t['Nominal Target'].all().to_latex(escape=False))
 f.close()
+
+
+
+
+##############################################################
+##Read in the data and filter out the NSCLC cells to leave only the melanoma cells
+###############################################################
+T = pd.read_csv('../../Data/MasterResults.csv')
+T = T[T['cell_line']!='PC9C1']
+T = T[T['cell_line']!='BR1']
+T = T[T['cell_line']!='PC9AZR']
+T = T[T['MCMC_converge']==1]
+T = T[T['model_level']>4]
+T = T[T['R2']>.5]
+
+
+t = T[['drug1_name','max_conc_d1','min_conc_d1']].groupby('drug1_name')
+t.mean()
+
+t = T[['drug2_name','max_conc_d2','min_conc_d2']].groupby('drug2_name')
+t.mean()

@@ -166,7 +166,7 @@ def plot_surface(mcmc_data, hts_data, drug_id, drug, N=50, elev=20, azim=19, fna
     scat_d2.loc[scat_d2==-np.inf] = scat_d2.loc[scat_d2!=-np.inf].min()-zero_conc
     scat_dip = hts_data['rate']
     scat_erb = hts_data['rate.95ci']
-    ax.scatter(scat_d2, scat_d1, scat_dip, s=1, depthshade=True)
+    ax.scatter(scat_d2, scat_d1, scat_dip, s=5, depthshade=True)
 
     # Plot error bars
     for _d1, _d2, _dip, _erb in zip(scat_d1, scat_d2, scat_dip, scat_erb):
