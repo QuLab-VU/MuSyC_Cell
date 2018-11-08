@@ -1,2 +1,3 @@
 To install 
-Add the MyAppInstaller_web.app in the for_redistribution folder
+
+Open the MyAppInstaller_web application in the for_redistribution folder

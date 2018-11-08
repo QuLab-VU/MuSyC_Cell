@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="/Volumes/Untitled/Matlab code/Matlab code/MuSyC_demo_mac.prj" location="/Volumes/Untitled/Matlab code/Matlab code" name="MuSyC_demo_mac" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration file="/Volumes/Gile/Users/darren/Documents/git_repos/MuSyC_Cell/MuSyC_App/MuSyC_demo_mac.prj" location="/Volumes/Gile/Users/darren/Documents/git_repos/MuSyC_Cell/MuSyC_App" name="MuSyC_demo_mac" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>MuSyC_demo</param.appname>
     <param.icon />
     <param.icons />
@@ -44,8 +44,8 @@ If it is defined, set it to the concatenation of these strings:
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
     <param.windows.command.prompt>false</param.windows.command.prompt>
-    <param.create.log>false</param.create.log>
-    <param.log.file />
+    <param.create.log>true</param.create.log>
+    <param.log.file>MuSyC_installer_log.txt</param.log.file>
     <unset>
       <param.icon />
       <param.icons />
@@ -74,8 +74,6 @@ If it is defined, set it to the concatenation of these strings:
       <param.package.mcr.name />
       <param.no.mcr.name />
       <param.windows.command.prompt />
-      <param.create.log />
-      <param.log.file />
     </unset>
     <fileset.main>
       <file>${PROJECT_ROOT}/synGUI.m</file>
@@ -88,10 +86,10 @@ If it is defined, set it to the concatenation of these strings:
       <file>${PROJECT_ROOT}/proverbs.csv</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="readme.txt" optional="true">/Volumes/Untitled/Matlab code/Matlab code/MuSyC_demo_mac/for_testing/readme.txt</file>
-      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="run_MuSyC_demo.sh" optional="false">/Volumes/Untitled/Matlab code/Matlab code/MuSyC_demo_mac/for_testing/run_MuSyC_demo.sh</file>
-      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="splash.png" optional="false">/Volumes/Untitled/Matlab code/Matlab code/MuSyC_demo_mac/for_testing/splash.png</file>
-      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="MuSyC_demo.app" optional="false">/Volumes/Untitled/Matlab code/Matlab code/MuSyC_demo_mac/for_testing/MuSyC_demo.app</file>
+      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="MuSyC_demo.app" optional="false">/Volumes/Gile/Users/darren/Documents/git_repos/MuSyC_Cell/MuSyC_App/MuSyC_demo_mac/for_testing/MuSyC_demo.app</file>
+      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="readme.txt" optional="true">/Volumes/Gile/Users/darren/Documents/git_repos/MuSyC_Cell/MuSyC_App/MuSyC_demo_mac/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="splash.png" optional="false">/Volumes/Gile/Users/darren/Documents/git_repos/MuSyC_Cell/MuSyC_App/MuSyC_demo_mac/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/MuSyC_demo_mac/for_testing" name="run_MuSyC_demo.sh" optional="false">/Volumes/Gile/Users/darren/Documents/git_repos/MuSyC_Cell/MuSyC_App/MuSyC_demo_mac/for_testing/run_MuSyC_demo.sh</file>
     </build-deliverables>
     <workflow />
     <matlab>
