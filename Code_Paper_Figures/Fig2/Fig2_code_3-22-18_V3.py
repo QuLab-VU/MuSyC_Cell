@@ -83,7 +83,7 @@ t_pc9.to_csv('../../Data/MasterResults_PC9_filtered.csv')
 ############################################################################        
 #Read in table of associated mechanism for each drug 
 ############################################################################
-mech = pd.read_csv('../../Data/Drugs_MOA_3-22-18.csv',index_col=0)
+mech = pd.read_csv('../../Data/Drug_MOA_Table_supp.csv',index_col=0)
 mech_key = pd.read_csv('../../Data/Drug_Class_Key.csv',index_col=0)
 #Which ones to label in the DSDs
 to_lab = ['vindesine','vinorelbine','quisinostat',
@@ -98,8 +98,32 @@ mech = mech.loc[drug_name]
 #Markers for each sub class
 markers = ['D','s','o','^']
 #Colors for each super class
-col = ['tab:blue', 'tab:orange', 'tab:red', 'tab:purple']
-cmaps = ['Blues','Oranges','Reds','Purples']
+col = ["blue", "orange", "red", "purple"]
+cmaps = ["Blues","Oranges","Reds","Purples"]
+
+
+
+################################################################################
+###Plotting Data
+#################################################################################
+#Alpha values (X potentiates osimertinib)
+x = [];x_sd=[]
+for e,i in enumerate(t_pc9.index):
+    if t_pc9['drug1_name'].loc[i]!='osimertinib':
+        x.append(t_pc9['log_alpha1'].loc[i])
+        x_sd.append(t_pc9['log_alpha1_std'].loc[i])
+    else:
+        x.append(t_pc9['log_alpha2'].loc[i])
+        x_sd.append(t_pc9['log_alpha2_std'].loc[i])
+
+x = np.array(x)
+x_sd = np.array(x_sd)
+#Beta values
+y = np.array(t_pc9['beta_obs_norm'])
+y_sd = np.array(t_pc9['beta_obs_norm_std'])
+#Format axes
+xmin,xmax = min(x)-.5,max(x)+.5
+ymin,ymax = min(y)-.05,max(y)+.1
 
 ################################################################################
 ###Make initial density plot of the all the drugs
@@ -110,16 +134,7 @@ ax.append(plt.subplot2grid((4,4),(1,0),rowspan=3,colspan=3))
 ax.append(plt.subplot2grid((4,4),(0,0),rowspan=1,colspan=3))
 ax.append(plt.subplot2grid((4,4),(1,3),rowspan=3,colspan=1))
 plt.subplots_adjust(wspace=0,hspace=0)
-#Alpha values (X potentiates osimertinib)
-x = []
-for e,i in enumerate(t_pc9.index):
-    if t_pc9['drug1_name'].loc[i]!='osimertinib':
-        x.append(t_pc9['log_alpha1'].loc[i])
-    else:
-        x.append(t_pc9['log_alpha2'].loc[i])
-x = np.array(x)
-#Beta values
-y = np.array(t_pc9['beta_obs_norm'])
+
 xx,yy=np.mgrid[min(x):max(x):100j,min(y):max(y):100j]
 positions = np.vstack([xx.ravel(), yy.ravel()])
 values = np.vstack([x, y])
@@ -131,9 +146,7 @@ tiers = [.01,.05,1]
 cfset = ax[0].contourf(xx, yy, f,tiers, cmap='Greys')
 cset = ax[0].contour(xx, yy, f,tiers, colors='k')
 ax[0].clabel(cset, inline=1, fontsize=8)
-#Format axes
-xmin,xmax = min(x)-.5,max(x)+.5
-ymin,ymax = min(y)-.05,max(y)+.1
+
 ax[0].set_xlim((xmin,xmax))
 ax[0].set_ylim((ymin,ymax))
 ax[0].set_xlabel(r'$log(\alpha_1)$')
@@ -354,6 +367,7 @@ plt.subplots_adjust(wspace=0,hspace=.4)
 #First figure is all drugs
 plt.sca(ax[0])
 plt.scatter(x,y,s=30,c='k',marker='o')
+plt.errorbar(x,y,xerr=x_sd,yerr=y_sd,capsize=0,color='gray',lw=1,linestyle='')
 plt.title('All')
 ax[0].set_xlim((xmin,xmax))
 ax[0].set_ylim((ymin,ymax))
@@ -378,8 +392,10 @@ for i in range(num_classes):
             if ~np.in1d(mk,seen)[0]:
                 seen.append(mk)
                 plt.scatter(x[drug_name.index(ind)],y[drug_name.index(ind)],
-                            s=30,c=col[i],marker=markers[int(np.round((mech['label'].loc[ind]-i-1)*10))-1],
+                            s=30,color=col[i],marker=markers[int(np.round((mech['label'].loc[ind]-i-1)*10))-1],
                             zorder=10,edgecolor='k',linewidth=1,label=mk)
+                plt.errorbar(x[drug_name.index(ind)],y[drug_name.index(ind)],xerr=x_sd[drug_name.index(ind)],yerr=y_sd[drug_name.index(ind)],capsize=0,color='gray',lw=1,linestyle='',zorder=100)
+
                 plt.title(sup_class[i])
                 #Add text label
                 if np.in1d(ind,to_lab)[0]:                
@@ -387,8 +403,10 @@ for i in range(num_classes):
             #If the marker has been seen, dont label...
             else:
                 plt.scatter(x[drug_name.index(ind)],y[drug_name.index(ind)],
-                            s=30,c=col[i],marker=markers[int(np.round((mech['label'].loc[ind]-i-1)*10))-1],
+                            s=30,color=col[i],marker=markers[int(np.round((mech['label'].loc[ind]-i-1)*10))-1],
                             zorder=10,edgecolor='k',linewidth=1)
+                plt.errorbar(x[drug_name.index(ind)],y[drug_name.index(ind)],xerr=x_sd[drug_name.index(ind)],yerr=y_sd[drug_name.index(ind)],capsize=0,color='gray',lw=1,linestyle='',zorder=100)
+
                 if np.in1d(ind,to_lab)[0]:                
                     text[i].append(plt.text(x[drug_name.index(ind)],y[drug_name.index(ind)],ind))
 #Format all the axes
@@ -402,17 +420,24 @@ for e in range(num_classes):
     plt.plot(x_lim,[0,0],linestyle='--',color='k')
     plt.sca(ax[e+1])
     #plt.legend(loc=9, bbox_to_anchor=(0.5, -0.03), ncol=1)
-    plt.legend(loc='upper right')
+    plt.legend(loc='upper right',handletextpad=.1)
     ax[e+1].tick_params(direction='in')
     ax[e+1].set_xticklabels([])
     ax[e+1].set_yticklabels([])
-    
+    ax[e+1].xaxis.set_ticks_position('bottom')
+    ax[e+1].yaxis.set_ticks_position('left')
+
 #Adjust text function from 
 #pip install adjustText package:  https://github.com/Phlya/adjustText
 for i in range(num_classes):
     plt.sca(ax[i+1])
     adjust_text(text[i], arrowprops=dict(arrowstyle='->', color='red'))
-plt.savefig('Plots/Fig2_DSDs.pdf')
+plt.savefig('Fig2_DSDs.pdf',bbox_inches = 'tight',pad_inches = 0)
+
+
+
+
+
 
 
 #Now plot the dsds for each of the sub classes

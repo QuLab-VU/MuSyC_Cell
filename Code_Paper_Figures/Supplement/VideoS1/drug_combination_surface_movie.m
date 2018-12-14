@@ -292,13 +292,13 @@ for vv = 1:length(v)
     xlabel([])
     ylabel([])
     zlabel([])
-    if beta<=0 && alpha<=1
+    if beta<=0 && alpha1<=1
         title('Antagonistic Efficacy, Antagonistic Potency','fontsize',12)
-    elseif beta>=0 && alpha<=1
+    elseif beta>=0 && alpha1<=1
         title('Synergistic Efficacy, Antagonistic Potency','fontsize',12)
-    elseif beta<=0 && alpha>=1
+    elseif beta<=0 && alpha1>=1
         title('Antagonistic Efficacy, Synergistic Potency','fontsize',12)
-    elseif beta>=0 && alpha>=1
+    elseif beta>=0 && alpha1>=1
         title('Synergistic Efficacy, Synergistic Potency','fontsize',12)
     end
     
@@ -396,13 +396,13 @@ for vv = 1:length(v)
     xlabel([])
     ylabel([])
     zlabel([])
-    if beta<=0 && alpha<=1
+    if beta<=0 && alpha1<=1
         title('Antagonistic Efficacy, Antagonistic Potency','fontsize',12)
-    elseif beta>=0 && alpha<=1
+    elseif beta>=0 && alpha1<=1
         title('Synergistic Efficacy, Antagonistic Potency','fontsize',12)
-    elseif beta<=0 && alpha>=1
+    elseif beta<=0 && alpha1>=1
         title('Antagonistic Efficacy, Synergistic Potency','fontsize',12)
-    elseif beta>=0 && alpha>=1
+    elseif beta>=0 && alpha1>=1
         title('Synergistic Efficacy, Synergistic Potency','fontsize',12)
     end
     
