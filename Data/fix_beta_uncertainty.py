@@ -23,13 +23,8 @@ for exp in experiments:
                                ((T.loc[ind,'E3']-T.loc[ind,minE])/(T.loc[ind,'E0']-T.loc[ind,minE])**2*T.loc[ind,'E0_std'])**2
                                )                
             
-            T.loc[ind,'beta']                = (T.loc[ind,minE]-T.loc[ind,'E3'])/(T.loc[ind,'E0']-T.loc[ind,minE])
-            T.loc[ind,'beta_std']            = beta_std(T,minE)
-            #Single beta's
-            T.loc[ind,'beta1']               = (T.loc[ind,'E1']-T.loc[ind,'E3'])/(T.loc[ind,'E0']-T.loc[ind,'E1'])
-            T.loc[ind,'beta2']               = (T.loc[ind,'E2']-T.loc[ind,'E3'])/(T.loc[ind,'E0']-T.loc[ind,'E2'])
-            T.loc[ind,'beta1_std']           = beta_std(T,'E1')
-            T.loc[ind,'beta2_std']           = beta_std(T,'E2')
+            T.loc[ind,'beta_norm']                = (T.loc[ind,minE]-T.loc[ind,'E3'])/(T.loc[ind,'E0']-T.loc[ind,minE])
+            T.loc[ind,'beta_norm_std']            = beta_std(T,minE)
             
         if ~np.isnan(T.loc[ind,['E1_obs','E2_obs']].values.astype('float')).all():
 
@@ -43,12 +38,9 @@ for exp in experiments:
                                ((T.loc[ind,'E3_obs']-T.loc[ind,minE])/(T.loc[ind,'E0']-T.loc[ind,minE])**2*T.loc[ind,'E0_std'])**2
                                )              
             
-            T.loc[ind,'beta_obs']            = (T.loc[ind,minE]-T.loc[ind,'E3_obs'])/(T.loc[ind,'E0']-T.loc[ind,minE])
-            T.loc[ind,'beta_obs_std']        = beta_std(T,minE)
+            T.loc[ind,'beta_obs_norm']            = (T.loc[ind,minE]-T.loc[ind,'E3_obs'])/(T.loc[ind,'E0']-T.loc[ind,minE])
+            T.loc[ind,'beta_obs_norm_std']        = beta_std(T,minE)
+
+    T = T.drop(columns=['beta_std','beta_obs','beta_obs_std','beta1_obs','beta2_obs','beta1_obs_std','beta2_obs_std','beta1','beta2','beta1_std','beta2_std','beta','beta1_norm','beta1_norm_std','beta2_norm','beta2_norm_std','beta2','beta1','beta1_obs_norm_std','beta1_obs_norm','beta2_obs_norm','beta2_obs_norm_std'])
             
-            T.loc[ind,'beta1_obs']           = (T.loc[ind,'E1_obs']-T.loc[ind,'E3_obs'])/(T.loc[ind,'E0']-T.loc[ind,'E1_obs'])
-            T.loc[ind,'beta2_obs']           = (T.loc[ind,'E2_obs']-T.loc[ind,'E3_obs'])/(T.loc[ind,'E0']-T.loc[ind,'E1_obs'])
-            T.loc[ind,'beta1_obs_std']       = beta_std(T,'E1_obs')
-            T.loc[ind,'beta2_obs_std']       = beta_std(T,'E2_obs')  
-            
-    T.to_csv(exp.split('.')[0],index=False)
+    T.to_csv(exp,index=False)
